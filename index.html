@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8" />
+  <title>RYTHM – Music App</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+<!-- ARTIST MODAL PAGE -->
+<div class="artist-page" id="artistPage">
+  <div class="artist-header">
+    <img id="artistImg">
+    <div>
+      <h1 id="artistName"></h1>
+      <p>Popular Songs</p>
+    </div>
+    <button class="close-btn" onclick="closeArtist()">✕</button>
+  </div>
+
+  <div class="artist-songs">
+    <div class="liked-card">
+      <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d">
+      <div class="song-info">
+        <strong>Thendral Vandhu</strong>
+        <span>Ilaiyaraaja</span>
+      </div>
+      <button class="like-btn">♥</button>
+    </div>
+
+    <div class="liked-card">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e">
+      <div class="song-info">
+        <strong>Punnagai Mannan</strong>
+        <span>Ilaiyaraaja</span>
+      </div>
+      <button class="like-btn">♥</button>
+    </div>
+  </div>
+</div>
+
+<body>
+
+<!-- NAVBAR -->
+ 
+<header class="navbar">
+
+  <div class="logo">RYTHM</div>
+  <nav>
+    <a class="active"><i data-lucide="home"></i>Home</a>
+    <a><i data-lucide="search"></i>Search</a>
+    <a><i data-lucide="library"></i>Your Library</a>
+    <a><i data-lucide="music"></i>Music</a>
+    <a><i data-lucide="podcast"></i>Podcasts</a>
+  </nav>
+  
+  <div class="user">SAMYUKTHA</div>
+</header>
+
+<!-- MAIN -->
+ <h1 class="greeting">Good Evening  SAM ,</h1>
+
+<main class="container">
+<section class="section fade-in">
+  <h2 class="section-title">Artists</h2>
+
+  <div class="artist-grid">
+    <div class="artist-card">
+      <img src="ILAYARAJA.png">
+      <div class="artist-overlay">▶</div>
+      <p>Ilaiyaraaja</p>
+    </div>
+
+    <div class="artist-card">
+      <img src="ARR.png">
+      <div class="artist-overlay">▶</div>
+      <p>A.R. Rahman</p>
+    </div>
+
+    <div class="artist-card">
+      <img src="ANI.png">
+      <div class="artist-overlay">▶</div>
+      <p>Anirudh</p>
+    </div>
+
+    <div class="artist-card">
+      <img src="YUVAN.png">
+      <div class="artist-overlay">▶</div>
+      <p>Yuvan Shanker Raja</p>
+    </div>
+  </div>
+</section>
+
+<section class="section fade-in">
+  <h2 class="section-title">Liked Songs</h2>
+
+  <div class="liked-list">
+    <div class="liked-card">
+      <img src="thendralvandhu.png">
+      <div class="song-info">
+        <strong>Thendral Vandhu</strong>
+        <span>Ilaiyaraaja</span>
+      </div>
+      <button class="like-btn">♥</button>
+    </div>
+
+    <div class="liked-card">
+      <img src="munbaeva.png">
+      <div class="song-info">
+        <strong>Munbe Vaa</strong>
+        <span>A.R. Rahman</span>
+      </div>
+      <button class="like-btn">♥</button>
+    </div>
+  </div>
+</section>
+
+  
+  <!-- TRENDING -->
+  <section class="section fade-in">
+    <h2 class="section-title">Trending</h2>
+    <div class="card-grid">
+      <div class="card">
+        <img src="top50.png" />
+        <div class="overlay">▶</div>
+        <p>Top Tamil 50<br><span>Global Hits</span></p>
+      </div>
+
+      <div class="card">
+        <img src="VIBE.png" />
+        <div class="overlay">▶</div>
+        <p>Vibe Check<br><span>Latest Originals</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECOMMENDED -->
+  <section class="section fade-in">
+    <h2 class="section-title">Recommended For You</h2>
+    <div class="card-grid">
+      <div class="card small">
+        <img src="CHILL.png" />
+        <div class="overlay">▶</div>
+        <p>Chill Beats</p>
+      </div>
+
+      <div class="card small">
+        <img src="NIGHT.png" />
+        <div class="overlay">▶</div>
+        <p>Night Drive</p>
+      </div>
+
+      <div class="card small">
+        <img src="melody.png" />
+        <div class="overlay">▶</div>
+        <p>Melodies</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- MUSIC PLAYER -->
+<footer class="player">
+  <div class="track">
+    <img src="thendralvandhu.png" />
+    <div>
+      <strong>Thendral Vandhu</strong>
+      <span>Ilaiyaraaja</span>
+      <h5>(Currenty playing)</h5>
+    </div>
+  </div>
+
+  <div class="controls">
+    ⏮
+    <button class="play">▶</button>
+    ⏭
+    <div class="progress">
+      <span></span>
+    </div>
+  </div>
+
+  <div class="volume">
+    🔊
+    <input type="range" />
+  </div>
+</footer>
+
+<script>
+    
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("show");
+    });
+  });
+
+  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+  
+</script>
+<script>
+  const artistPage = document.getElementById("artistPage");
+  const artistImg = document.getElementById("artistImg");
+  const artistName = document.getElementById("artistName");
+
+  document.querySelectorAll(".artist-card").forEach(card => {
+    card.addEventListener("click", () => {
+      artistImg.src = card.querySelector("img").src;
+      artistName.innerText = card.querySelector("p").innerText;
+      artistPage.classList.add("show");
+    });
+  });
+
+  function closeArtist() {
+    artistPage.classList.remove("show");
+  }
+</script>
+<script>
+  document.addEventListener("click", e => {
+    if (e.target.classList.contains("like-btn")) {
+      e.target.classList.toggle("active");
+    }
+  });
+  lucide.createIcons();
+</script>
+
+
+
+</body>
+</html>
